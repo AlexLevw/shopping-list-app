@@ -12,8 +12,8 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#495057',
     width: '100%',
+    backgroundColor: '#495057',
   }, 
   title: {
     color: '#fff',
