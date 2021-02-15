@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, ScrollView, TouchableOpacity, TextInput, Button, Text } from 'react-native';
 
-interface IItmesList {
+interface IListItem {
   value: string,
   isDone: boolean
 }
 
 export default function MainSection() {
   const [inputValue, setInputValue] = useState<string>('');
-  const [listItems, setListItems] = useState<IItmesList[]>([]);
+  const [listItems, setListItems] = useState<IListItem[]>([]);
 
   function pressAddInputBtn(): void {
     if (inputValue) {
@@ -22,8 +22,9 @@ export default function MainSection() {
     }
   }
 
-  function pressItem(item: IItmesList): void {
-
+  function pressItem(itemId: number): void {
+    const result = listItems.filter((value, index) => itemId !== index);
+    setListItems(result);
   }
 
   return (
@@ -31,6 +32,7 @@ export default function MainSection() {
       <View style={styles.addItem}>
         <TextInput
           onChangeText={text => setInputValue(text)}
+          defaultValue={inputValue}
           style={styles.addItemInput} />
         <Button title='+' onPress={pressAddInputBtn} />
       </View>
@@ -40,7 +42,7 @@ export default function MainSection() {
             <TouchableOpacity
             key={id}
             style={styles.listItem}
-            onPress={() => pressItem(item)} >
+            onPress={() => pressItem(id)} >
               <Text style={styles.listItemTitle}>{item.value}</Text>
             </TouchableOpacity>         
           )
