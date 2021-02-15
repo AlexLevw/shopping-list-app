@@ -1,25 +1,25 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, StatusBar } from 'react-native';
 
 export default function Header() {
   return (
     <View style={styles.container}>
-      <StatusBar
-      style='auto'
-      backgroundColor='#102027' />
-      <Text>Shopping list:</Text>
+      <StatusBar backgroundColor='#495057' />
+      <Text style={styles.title}>Shopping list</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#222'
+    backgroundColor: '#495057',
+    width: '100%',
   }, 
-  satusBar: {
-    flex: 1  
+  title: {
+    color: '#fff',
+    fontSize: 20,
+    marginBottom: 10,
+    textAlign: 'center'
   }
 });
 
