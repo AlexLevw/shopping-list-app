@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, ScrollView, TouchableOpacity, TextInput, Button, Text } from 'react-native';
+import { StyleSheet, View, ScrollView, TouchableOpacity, TouchableHighlight, TextInput, Text } from 'react-native';
 
 interface IListItem {
   value: string,
@@ -34,7 +34,9 @@ export default function MainSection() {
           onChangeText={text => setInputValue(text)}
           defaultValue={inputValue}
           style={styles.addItemInput} />
-        <Button title='+' onPress={pressAddInputBtn} />
+        <TouchableHighlight onPress={pressAddInputBtn} style={styles.addItemBtn}>
+          <Text style={{fontSize: 24, marginBottom: 3, color: '#fff'}}>+</Text>
+        </TouchableHighlight>
       </View>
       <ScrollView style={styles.list}>
         {
@@ -61,15 +63,25 @@ const styles = StyleSheet.create({
   addItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 20
   },
   addItemInput: {
     width: '86%',
+    height: 30,
     backgroundColor: '#fff',
     paddingLeft: 8,
     paddingRight: 8,
     borderRadius: 25,
     textAlign: 'center'
+  },
+  addItemBtn:{
+    width: 36,
+    height: 36,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    backgroundColor: '#008000',
   },
   list: {
     width: '100%',

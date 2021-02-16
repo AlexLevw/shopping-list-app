@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 
 import Header from './src/components/Header/Header';
 import MainSection from './src/components/MainSection/MainSection';
@@ -7,6 +7,7 @@ import MainSection from './src/components/MainSection/MainSection';
 export default function App() {
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor='#495057' />
       <Header />
       <MainSection />
     </View>
